@@ -14,12 +14,15 @@ import ObjectMapper
  * Yahoo! Open Local Platform
  */
 class OlpApi {
-    static func localSearch(callback: (Array<Feature>) -> ()) {
+    static func localSearch(lat: Double, lon: Double, callback: (Array<Feature>) -> ()) {
         Alamofire.request(.GET, "http://search.olp.yahooapis.jp/OpenLocalPlatform/V1/localSearch",
             parameters: [
                 "appid" : "dj0zaiZpPXBoYkNKZWkwMjgyaSZzPWNvbnN1bWVyc2VjcmV0Jng9NTM-",
                 "output" : "json",
-                "query" : "観光地"
+                "results" : 20,
+                "gc": "0303",   // レジャー (http://developer.yahoo.co.jp/webapi/map/openlocalplatform/genre.html)
+                "lat": lat,
+                "lon": lon
             ])
             .responseJSON { response in
                 

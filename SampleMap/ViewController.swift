@@ -38,14 +38,6 @@ class ViewController: UIViewController {
             metrics:nil,
             views: bindings))
         
-        /*
-        let marker = GMSMarker()
-        marker.position = CLLocationCoordinate2DMake(-33.86, 151.20)
-        marker.title = "Sydney"
-        marker.snippet = "Australia"
-        marker.map = mapView
-        */
-        
         self.initLM()
     }
 
@@ -54,7 +46,13 @@ class ViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
 
-
+    func addMarker(feature: Feature) {
+        let marker = GMSMarker()
+        marker.position = CLLocationCoordinate2DMake((feature.cordinates?.latitude)!, (feature.cordinates?.longitude)!)
+        marker.title = feature.name
+        marker.snippet = feature.name
+        marker.map = mapView
+    }
 }
 
 extension ViewController : CLLocationManagerDelegate {
@@ -99,13 +97,17 @@ extension ViewController : CLLocationManagerDelegate {
         if locations.count > 0{
             self.currentLocation = locations.last
             
-            let camera = GMSCameraPosition.cameraWithLatitude((currentLocation?.coordinate.latitude)!,
-                longitude: (currentLocation?.coordinate.longitude)!, zoom: 12)
+            let lat = (currentLocation?.coordinate.latitude)!
+            let lon = (currentLocation?.coordinate.longitude)!
+            
+            let camera = GMSCameraPosition.cameraWithLatitude(lat, longitude: lon, zoom: 12)
             self.mapView.camera = camera
             
-            OlpApi.localSearch({ (features) -> () in
+            OlpApi.localSearch(
+                lat, lon: lon,
+                callback: { (features) -> () in
                 for feature in features {
-                    NSLog("\(feature.name) \(feature.cordinates)")
+                    self.addMarker(feature)
                 }
                 return;
             })
