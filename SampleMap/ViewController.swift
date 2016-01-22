@@ -10,15 +10,29 @@ import UIKit
 import GoogleMaps
 
 class ViewController: UIViewController {
+    
+    @IBOutlet weak var mapFrame: UIView!
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
         let camera = GMSCameraPosition.cameraWithLatitude(-33.86,
             longitude: 151.20, zoom: 6)
-        let mapView = GMSMapView.mapWithFrame(CGRectZero, camera: camera)
+        let mapView = GMSMapView.mapWithFrame(self.mapFrame.bounds, camera: camera)
         mapView.myLocationEnabled = true
-        self.view = mapView
+        self.mapFrame.addSubview(mapView)
+        
+        mapView.translatesAutoresizingMaskIntoConstraints = false
+        let bindings = ["view": mapView]
+        self.mapFrame.addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("H:|[view]|",
+            options:NSLayoutFormatOptions(rawValue: 0),
+            metrics:nil,
+            views: bindings))
+        self.mapFrame.addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("V:|[view]|",
+            options:NSLayoutFormatOptions(rawValue: 0),
+            metrics:nil,
+            views: bindings))
+        
         
         let marker = GMSMarker()
         marker.position = CLLocationCoordinate2DMake(-33.86, 151.20)
