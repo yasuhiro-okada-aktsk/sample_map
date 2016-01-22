@@ -1,4 +1,4 @@
-{
+[
     {
         "name": "金閣寺",
         "lat": 35.03937,
@@ -23,4 +23,4 @@
         "lon": 137.6599953,
         "image": "https://ja.wikipedia.org/wiki/%E3%83%95%E3%82%A1%E3%82%A4%E3%83%AB:Kurobe_Dam_survey_2.jpg"
     }
-}
+]
