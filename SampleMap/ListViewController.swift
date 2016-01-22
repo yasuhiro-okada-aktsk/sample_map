@@ -8,7 +8,7 @@
 
 import UIKit
 
-let reuseIdUser = "UserCell"
+let reuseIdUser = "PoiCell"
 
 class ListViewController : UICollectionViewController {
     private var adapter = ContentAdapter()
@@ -59,7 +59,7 @@ extension ListViewController : UICollectionViewDelegateFlowLayout {
         layout collectionViewLayout: UICollectionViewLayout,
         sizeForItemAtIndexPath indexPath: NSIndexPath) -> CGSize {
             let width = floorf(Float(collectionView.frame.size.width) / 2) - 10;
-            let height = 50;
+            let height = 250;
             
             return CGSize(width: Int(width), height: Int(height))
     }

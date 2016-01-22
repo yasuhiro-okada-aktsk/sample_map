@@ -38,8 +38,8 @@ class PoiCell: UICollectionViewCell {
             views: bindings))
     }
     
-    func setContent(poi: Any) {
-        //labelUserName.text = poi.name
-        //imageView.sd_setImageWithURL(NSURL(string: poi.image!))
+    func setContent(poi: Dictionary<String, AnyObject>) {
+        label.text = poi["name"] as? String
+        imageView.sd_setImageWithURL(NSURL(string: poi["image"] as! String))
     }
 }
