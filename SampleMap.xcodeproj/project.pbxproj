@@ -15,6 +15,9 @@
 		C83A6A3E1C51B672000E5793 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C83A6A3C1C51B672000E5793 /* LaunchScreen.storyboard */; };
 		C83A6A491C51B672000E5793 /* SampleMapTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C83A6A481C51B672000E5793 /* SampleMapTests.swift */; };
 		C83A6A541C51B672000E5793 /* SampleMapUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C83A6A531C51B672000E5793 /* SampleMapUITests.swift */; };
+		C88DE0B01C51EFD3006042A8 /* OlpApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = C88DE0AF1C51EFD3006042A8 /* OlpApi.swift */; };
+		C88DE0B31C51F23B006042A8 /* Feature.swift in Sources */ = {isa = PBXBuildFile; fileRef = C88DE0B21C51F23B006042A8 /* Feature.swift */; };
+		C88DE0B61C51F60D006042A8 /* LocalSearchResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = C88DE0B51C51F60D006042A8 /* LocalSearchResponse.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,6 +52,9 @@
 		C83A6A4F1C51B672000E5793 /* SampleMapUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SampleMapUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		C83A6A531C51B672000E5793 /* SampleMapUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SampleMapUITests.swift; sourceTree = "<group>"; };
 		C83A6A551C51B672000E5793 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		C88DE0AF1C51EFD3006042A8 /* OlpApi.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OlpApi.swift; sourceTree = "<group>"; };
+		C88DE0B21C51F23B006042A8 /* Feature.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Feature.swift; sourceTree = "<group>"; };
+		C88DE0B51C51F60D006042A8 /* LocalSearchResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocalSearchResponse.swift; sourceTree = "<group>"; };
 		D8E038F18CF0CD2807C17371 /* Pods-SampleMap.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SampleMap.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SampleMap/Pods-SampleMap.debug.xcconfig"; sourceTree = "<group>"; };
 		DFEFD96C2E16C985278BC1D5 /* Pods_SampleMap.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SampleMap.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -121,8 +127,10 @@
 		C83A6A321C51B672000E5793 /* SampleMap */ = {
 			isa = PBXGroup;
 			children = (
+				C88DE0AD1C51EF5D006042A8 /* datasources */,
+				C88DE0AB1C51EF2F006042A8 /* presentations */,
+				C88DE0AA1C51EEFF006042A8 /* utils */,
 				C83A6A331C51B672000E5793 /* AppDelegate.swift */,
-				C83A6A351C51B672000E5793 /* ViewController.swift */,
 				C83A6A371C51B672000E5793 /* Main.storyboard */,
 				C83A6A3A1C51B672000E5793 /* Assets.xcassets */,
 				C83A6A3C1C51B672000E5793 /* LaunchScreen.storyboard */,
@@ -147,6 +155,63 @@
 				C83A6A551C51B672000E5793 /* Info.plist */,
 			);
 			path = SampleMapUITests;
+			sourceTree = "<group>";
+		};
+		C88DE0AA1C51EEFF006042A8 /* utils */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = utils;
+			sourceTree = "<group>";
+		};
+		C88DE0AB1C51EF2F006042A8 /* presentations */ = {
+			isa = PBXGroup;
+			children = (
+				C88DE0AC1C51EF38006042A8 /* viewcontrollers */,
+			);
+			name = presentations;
+			sourceTree = "<group>";
+		};
+		C88DE0AC1C51EF38006042A8 /* viewcontrollers */ = {
+			isa = PBXGroup;
+			children = (
+				C83A6A351C51B672000E5793 /* ViewController.swift */,
+			);
+			name = viewcontrollers;
+			sourceTree = "<group>";
+		};
+		C88DE0AD1C51EF5D006042A8 /* datasources */ = {
+			isa = PBXGroup;
+			children = (
+				C88DE0AE1C51EF6F006042A8 /* api */,
+			);
+			name = datasources;
+			sourceTree = "<group>";
+		};
+		C88DE0AE1C51EF6F006042A8 /* api */ = {
+			isa = PBXGroup;
+			children = (
+				C88DE0B41C51F5C8006042A8 /* responses */,
+				C88DE0B11C51F0EB006042A8 /* dto */,
+				C88DE0AF1C51EFD3006042A8 /* OlpApi.swift */,
+			);
+			name = api;
+			sourceTree = "<group>";
+		};
+		C88DE0B11C51F0EB006042A8 /* dto */ = {
+			isa = PBXGroup;
+			children = (
+				C88DE0B21C51F23B006042A8 /* Feature.swift */,
+			);
+			name = dto;
+			sourceTree = "<group>";
+		};
+		C88DE0B41C51F5C8006042A8 /* responses */ = {
+			isa = PBXGroup;
+			children = (
+				C88DE0B51C51F60D006042A8 /* LocalSearchResponse.swift */,
+			);
+			name = responses;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -331,6 +396,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C88DE0B61C51F60D006042A8 /* LocalSearchResponse.swift in Sources */,
+				C88DE0B31C51F23B006042A8 /* Feature.swift in Sources */,
+				C88DE0B01C51EFD3006042A8 /* OlpApi.swift in Sources */,
 				C83A6A361C51B672000E5793 /* ViewController.swift in Sources */,
 				C83A6A341C51B672000E5793 /* AppDelegate.swift in Sources */,
 			);

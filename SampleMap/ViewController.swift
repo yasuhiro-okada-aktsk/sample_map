@@ -38,18 +38,15 @@ class ViewController: UIViewController {
             metrics:nil,
             views: bindings))
         
-        
+        /*
         let marker = GMSMarker()
         marker.position = CLLocationCoordinate2DMake(-33.86, 151.20)
         marker.title = "Sydney"
         marker.snippet = "Australia"
         marker.map = mapView
+        */
         
         self.initLM()
-        
-        dispatch_async(dispatch_get_main_queue(), {
-            //self.searchCurrentLocation()
-        })
     }
 
     override func didReceiveMemoryWarning() {
@@ -78,7 +75,6 @@ extension ViewController : CLLocationManagerDelegate {
             locationManager.requestWhenInUseAuthorization()
             
         case .AuthorizedWhenInUse, .AuthorizedAlways:
-            NSLog("startUpdatingLocation")
             locationManager.startUpdatingLocation()
         }
     }
@@ -93,7 +89,6 @@ extension ViewController : CLLocationManagerDelegate {
             locationManager.startUpdatingLocation()
             
         default:
-            NSLog("didChangeAuthorizationStatus : \(status.rawValue)")
             break
         }
     }
@@ -107,6 +102,13 @@ extension ViewController : CLLocationManagerDelegate {
             let camera = GMSCameraPosition.cameraWithLatitude((currentLocation?.coordinate.latitude)!,
                 longitude: (currentLocation?.coordinate.longitude)!, zoom: 12)
             self.mapView.camera = camera
+            
+            OlpApi.localSearch({ (features) -> () in
+                for feature in features {
+                    NSLog("\(feature.name) \(feature.cordinates)")
+                }
+                return;
+            })
 
         }
         
@@ -117,3 +119,4 @@ extension ViewController : CLLocationManagerDelegate {
         
     }
 }
+
