@@ -9,7 +9,7 @@
 import UIKit
 import GoogleMaps
 
-class ViewController: UIViewController {
+class MapViewController: UIViewController {
     
     @IBOutlet weak var mapFrame: UIView!
     
@@ -58,7 +58,7 @@ class ViewController: UIViewController {
     }
 }
 
-extension ViewController : CLLocationManagerDelegate {
+extension MapViewController : CLLocationManagerDelegate {
     
     func initLM() {
         self.locationManager.desiredAccuracy = kCLLocationAccuracyBest
