@@ -24,7 +24,10 @@ class ViewController: UIViewController {
         let camera = GMSCameraPosition.cameraWithLatitude(-33.86,
             longitude: 151.20, zoom: 6)
         self.mapView = GMSMapView.mapWithFrame(self.mapFrame.bounds, camera: camera)
+        
         self.mapView.myLocationEnabled = true
+        self.mapView.settings.myLocationButton = true
+        
         self.mapFrame.addSubview(self.mapView)
         
         self.mapView.translatesAutoresizingMaskIntoConstraints = false
