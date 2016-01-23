@@ -58,8 +58,8 @@ extension ListViewController : UICollectionViewDelegateFlowLayout {
     func collectionView(collectionView: UICollectionView,
         layout collectionViewLayout: UICollectionViewLayout,
         sizeForItemAtIndexPath indexPath: NSIndexPath) -> CGSize {
-            let width = floorf(Float(collectionView.frame.size.width) / 2) - 10;
-            let height = 250;
+            let width = floorf(Float(collectionView.frame.size.width) / 2) - 6;
+            let height = width;
             
             return CGSize(width: Int(width), height: Int(height))
     }
