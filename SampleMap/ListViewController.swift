@@ -74,9 +74,10 @@ extension ListViewController : UICollectionViewDelegateFlowLayout {
 }
 
 extension ListViewController /*: UICollectionViewDelegate */ {
-    override func collectionView(collectionView: UICollectionView,
-        didSelectItemAtIndexPath indexPath: NSIndexPath) {
+    override func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
             //let user = self.adapter.getData(indexPath.section * 2 + indexPath.row) as! User
             //NSLog("\(user.login)")
+            
+            self.performSegueWithIdentifier("showMap", sender: self)
     }
 }
