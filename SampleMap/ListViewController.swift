@@ -23,6 +23,17 @@ class ListViewController : UICollectionViewController {
         self.collectionView?.reloadData()
     }
     
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        switch(segue.identifier!) {
+        case "showMap":
+            let controller : MapViewController = segue.destinationViewController as! MapViewController
+            controller;
+            
+        default:
+            NSLog("unknown segue \(segue.identifier)")
+        }
+    }
+    
     func loadLocalData() -> AnyObject? {
         do {
             let filepath = NSBundle.mainBundle().pathForResource("assets/data", ofType: "js")
