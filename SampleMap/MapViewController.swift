@@ -128,7 +128,6 @@ extension MapViewController : CLLocationManagerDelegate {
         
         if locations.count > 0{
             self.currentLocation = locations.last
-            
         }
     }
     

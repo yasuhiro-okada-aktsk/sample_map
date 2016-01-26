@@ -88,8 +88,8 @@ extension ListViewController : UICollectionViewDelegateFlowLayout {
 
 extension ListViewController /*: UICollectionViewDelegate */ {
     override func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
-            self.poi = self.adapter.getData(indexPath.section * 2 + indexPath.row) as? Dictionary<String, AnyObject>
+        self.poi = self.adapter.getData(indexPath.section * 2 + indexPath.row) as? Dictionary<String, AnyObject>
         
-            self.performSegueWithIdentifier("showMap", sender: self)
+        self.performSegueWithIdentifier("showMap", sender: self)
     }
 }
