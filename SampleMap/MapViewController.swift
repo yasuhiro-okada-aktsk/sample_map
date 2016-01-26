@@ -17,12 +17,13 @@ class MapViewController: UIViewController {
 
     var locationManager = CLLocationManager()
     var currentLocation: CLLocation?
+    
+    var poi: Dictionary<String, AnyObject>?
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        let camera = GMSCameraPosition.cameraWithLatitude(-33.86,
-            longitude: 151.20, zoom: 6)
+        let camera = GMSCameraPosition.cameraWithLatitude(self.poi!["lat"] as! Double, longitude: self.poi!["lon"] as! Double, zoom: 12)
         self.mapView = GMSMapView.mapWithFrame(self.mapFrame.bounds, camera: camera)
         
         self.mapView.myLocationEnabled = true
@@ -41,7 +42,8 @@ class MapViewController: UIViewController {
             metrics:nil,
             views: bindings))
         
-        self.initLM()
+        //self.initLm()
+        self.search()
     }
 
     override func didReceiveMemoryWarning() {
@@ -56,11 +58,28 @@ class MapViewController: UIViewController {
         marker.snippet = feature.name
         marker.map = mapView
     }
+    
+    func search() {
+        let lat = self.poi!["lat"] as! Double
+        let lon = self.poi!["lon"] as! Double
+        
+        let camera = GMSCameraPosition.cameraWithLatitude(lat, longitude: lon, zoom: 12)
+        self.mapView.camera = camera
+        
+        OlpApi.localSearch(
+            lat, lon: lon,
+            callback: { (features) -> () in
+                for feature in features {
+                    self.addMarker(feature)
+                }
+                return;
+        })
+    }
 }
 
 extension MapViewController : CLLocationManagerDelegate {
     
-    func initLM() {
+    func initLm() {
         self.locationManager.desiredAccuracy = kCLLocationAccuracyBest
         self.locationManager.delegate = self
     }
@@ -100,28 +119,11 @@ extension MapViewController : CLLocationManagerDelegate {
         if locations.count > 0{
             self.currentLocation = locations.last
             
-            let lat = (currentLocation?.coordinate.latitude)!
-            let lon = (currentLocation?.coordinate.longitude)!
-            
-            let camera = GMSCameraPosition.cameraWithLatitude(lat, longitude: lon, zoom: 12)
-            self.mapView.camera = camera
-            
-            OlpApi.localSearch(
-                lat, lon: lon,
-                callback: { (features) -> () in
-                for feature in features {
-                    self.addMarker(feature)
-                }
-                return;
-            })
-
         }
-        
     }
     
     func locationManager(manager: CLLocationManager, didFailWithError error: NSError) {
         NSLog("didFailWithError : \(error)")
-        
     }
 }
 

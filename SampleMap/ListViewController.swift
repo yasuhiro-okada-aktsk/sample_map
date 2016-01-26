@@ -13,6 +13,8 @@ let reuseIdUser = "PoiCell"
 class ListViewController : UICollectionViewController {
     private var adapter = ContentAdapter()
     
+    private var poi: Dictionary<String, AnyObject>?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -27,7 +29,7 @@ class ListViewController : UICollectionViewController {
         switch(segue.identifier!) {
         case "showMap":
             let controller : MapViewController = segue.destinationViewController as! MapViewController
-            controller;
+            controller.poi = self.poi;
             
         default:
             NSLog("unknown segue \(segue.identifier)")
@@ -86,9 +88,8 @@ extension ListViewController : UICollectionViewDelegateFlowLayout {
 
 extension ListViewController /*: UICollectionViewDelegate */ {
     override func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
-            //let user = self.adapter.getData(indexPath.section * 2 + indexPath.row) as! User
-            //NSLog("\(user.login)")
-            
+            self.poi = self.adapter.getData(indexPath.section * 2 + indexPath.row) as? Dictionary<String, AnyObject>
+        
             self.performSegueWithIdentifier("showMap", sender: self)
     }
 }

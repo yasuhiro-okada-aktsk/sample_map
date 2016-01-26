@@ -20,7 +20,7 @@ class OlpApi {
                 "appid" : "dj0zaiZpPXBoYkNKZWkwMjgyaSZzPWNvbnN1bWVyc2VjcmV0Jng9NTM-",
                 "output" : "json",
                 "results" : 20,
-                "gc": "0303",   // レジャー (http://developer.yahoo.co.jp/webapi/map/openlocalplatform/genre.html)
+                "gc": "0424",   // 寺院 (http://developer.yahoo.co.jp/webapi/map/openlocalplatform/genre.html)
                 "lat": lat,
                 "lon": lon
             ])
@@ -28,7 +28,9 @@ class OlpApi {
                 
                 if let JSON = response.result.value {
                     let result : LocalSearchResponse = Mapper<LocalSearchResponse>().map(JSON)!
-                    callback(result.features!)
+                    if let features = result.features {
+                        callback(features)
+                    }
                 }
         }
     }
