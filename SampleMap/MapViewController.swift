@@ -43,6 +43,7 @@ class MapViewController: UIViewController {
             views: bindings))
         
         //self.initLm()
+        self.addMarker(poiToFeature(self.poi!))
         self.search()
     }
 
@@ -74,6 +75,14 @@ class MapViewController: UIViewController {
                 }
                 return;
         })
+    }
+    
+    private func poiToFeature(poi : Dictionary<String, AnyObject>) -> Feature {
+        let feature = Feature()
+        feature.id = ""
+        feature.name = poi["name"] as? String
+        feature.cordinates = CLLocationCoordinate2DMake(self.poi!["lat"] as! Double, self.poi!["lon"] as! Double)
+        return feature
     }
 }
 

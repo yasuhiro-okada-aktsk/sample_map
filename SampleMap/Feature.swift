@@ -15,6 +15,10 @@ class Feature: Mappable {
     var name: String?
     var cordinates: CLLocationCoordinate2D?
     
+    init() {
+        
+    }
+    
     required init?(_ map: Map) {
         
     }
