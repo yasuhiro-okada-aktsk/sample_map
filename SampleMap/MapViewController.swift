@@ -56,7 +56,8 @@ class MapViewController: UIViewController {
         let marker = GMSMarker()
         marker.position = CLLocationCoordinate2DMake((feature.cordinates?.latitude)!, (feature.cordinates?.longitude)!)
         marker.title = feature.name
-        marker.snippet = feature.name
+        //marker.snippet = feature.name
+        marker.icon = UIImage(named: "Marker1")
         marker.map = mapView
     }
     
