@@ -86,10 +86,16 @@ strip_invalid_archs() {
 if [[ "$CONFIGURATION" == "Debug" ]]; then
   install_framework "Pods-SampleMap/Alamofire.framework"
   install_framework "Pods-SampleMap/ObjectMapper.framework"
+  install_framework "Pods-SampleMap/RxBlocking.framework"
+  install_framework "Pods-SampleMap/RxCocoa.framework"
+  install_framework "Pods-SampleMap/RxSwift.framework"
   install_framework "Pods-SampleMap/SDWebImage.framework"
 fi
 if [[ "$CONFIGURATION" == "Release" ]]; then
   install_framework "Pods-SampleMap/Alamofire.framework"
   install_framework "Pods-SampleMap/ObjectMapper.framework"
+  install_framework "Pods-SampleMap/RxBlocking.framework"
+  install_framework "Pods-SampleMap/RxCocoa.framework"
+  install_framework "Pods-SampleMap/RxSwift.framework"
   install_framework "Pods-SampleMap/SDWebImage.framework"
 fi

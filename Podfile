@@ -8,10 +8,13 @@ target 'SampleMap' do
     pod 'Alamofire', '~> 3.0'
     pod 'ObjectMapper', '~> 1.1'
     pod 'SDWebImage', '~>3.7'
+    pod 'RxSwift',    '~> 2.0'
+    pod 'RxCocoa',    '~> 2.0'
+    pod 'RxBlocking', '~> 2.0'
 end
 
 target 'SampleMapTests' do
-
+    pod 'RxTests',    '~> 2.0'
 end
 
 target 'SampleMapUITests' do
