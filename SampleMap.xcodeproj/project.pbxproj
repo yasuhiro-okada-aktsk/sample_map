@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0E77B07D1C58311A007AFEBD /* RouteListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E77B07C1C58311A007AFEBD /* RouteListViewController.swift */; };
 		262A032CFDB4598BB6B7D54F /* Pods_SampleMap.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DFEFD96C2E16C985278BC1D5 /* Pods_SampleMap.framework */; };
 		83C7424E612028D660E393A5 /* Pods_SampleMapTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1E09A53FB06B0BF647916569 /* Pods_SampleMapTests.framework */; };
 		C83A6A341C51B672000E5793 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C83A6A331C51B672000E5793 /* AppDelegate.swift */; };
@@ -48,6 +49,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		0E77B07C1C58311A007AFEBD /* RouteListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RouteListViewController.swift; sourceTree = "<group>"; };
 		111D1A92D0C2D1EF57C3E939 /* Pods-SampleMapTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SampleMapTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-SampleMapTests/Pods-SampleMapTests.release.xcconfig"; sourceTree = "<group>"; };
 		1E09A53FB06B0BF647916569 /* Pods_SampleMapTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SampleMapTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		AB639C79C231B6F92D4FCF8C /* Pods-SampleMap.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SampleMap.release.xcconfig"; path = "Pods/Target Support Files/Pods-SampleMap/Pods-SampleMap.release.xcconfig"; sourceTree = "<group>"; };
@@ -206,6 +208,7 @@
 			children = (
 				C83A6A351C51B672000E5793 /* MapViewController.swift */,
 				C88DE0B91C52254B006042A8 /* ListViewController.swift */,
+				0E77B07C1C58311A007AFEBD /* RouteListViewController.swift */,
 			);
 			name = viewcontrollers;
 			sourceTree = "<group>";
@@ -510,6 +513,7 @@
 				C88DE0B61C51F60D006042A8 /* LocalSearchResponse.swift in Sources */,
 				C88DE0B31C51F23B006042A8 /* Feature.swift in Sources */,
 				C88DE0C91C522F64006042A8 /* PoiCell.swift in Sources */,
+				0E77B07D1C58311A007AFEBD /* RouteListViewController.swift in Sources */,
 				C88DE0BA1C52254B006042A8 /* ListViewController.swift in Sources */,
 				C88DE0B01C51EFD3006042A8 /* OlpApi.swift in Sources */,
 				C88DE0BD1C522E53006042A8 /* ContentAdapter.swift in Sources */,
